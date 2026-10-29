@@ -17,7 +17,13 @@
 
 @echo on
 
-set GCS_TESTBENCH_VERSION="v0.36.0"
+@rem v0.36.0 pins grpcio 1.54.0, which has no Python 3.12 wheel (and does not
+@rem build from source on Windows); v0.39.0 is the version install_gcs_testbench.sh
+@rem installs on Linux and macOS
+set GCS_TESTBENCH_VERSION="v0.39.0"
+
+@REM Latests versions of Testbench require newer setuptools
+python -m pip install --upgrade setuptools || exit /B 1
 
 @REM Install GCS testbench %GCS_TESTBENCH_VERSION%
 python -m pip install  ^

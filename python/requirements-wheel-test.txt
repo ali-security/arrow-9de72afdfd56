@@ -1,9 +1,16 @@
 cffi
+cloudpickle
 cython
+fsspec
 hypothesis
 pytest
 pytest-lazy-fixture
 pytz
+s3fs[boto3]
+scipy
+# sparse needs numba, which had no Python 3.12 release yet (numba 0.59.0,
+# 2024-01-31, is the first)
+sparse; python_version < "3.12"
 tzdata; sys_platform == 'win32'
 
 numpy==1.21.3; platform_system == "Linux"   and platform_machine == "aarch64" and python_version < "3.11"
